@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Mail, Github, MapPin, GraduationCap, Code, ChevronDown, Globe, Briefcase, Server } from 'lucide-react';
+import { Mail, Github, MapPin, GraduationCap, Code, ChevronDown, Globe, Briefcase } from 'lucide-react';
+import Profile from "./assets/dhanush.png"
 
 const translations = {
   de: {
@@ -14,14 +15,14 @@ const translations = {
 
   hero: {
     greeting: 'Hallo, ich bin',
-    title: 'Dein Name',
+    title: 'Dhanush',
     subtitle: 'DevOps Engineer mit Schwerpunkt auf CI/CD, Cloud-Infrastruktur, Kubernetes und Observability. Erfahrung mit AWS, Terraform, Docker, Jenkins, Argo CD sowie dem Aufbau und Betrieb zuverlässiger Kubernetes-Plattformen.',
     cta: 'Kontaktieren Sie mich'
   },
 
   about: {
     title: 'Wer bin ich?',
-    content: 'Hallo, ich bin [Dein Name], DevOps Engineer mit mehr als 3 Jahren Erfahrung in Cloud-Infrastruktur, CI/CD-Automatisierung und Plattformbetrieb.\n\nMein fachlicher Schwerpunkt liegt auf AWS, Terraform, Docker, Kubernetes, Jenkins, GitOps mit Argo CD sowie Monitoring mit Prometheus und Grafana. Dazu kommen DevSecOps-Praktiken wie Container- und Dependency-Scans.\n\nIch interessiere mich für zuverlässige Release-Prozesse, reproduzierbare Infrastruktur und den stabilen, sicheren Betrieb von Plattformen in der Produktion.',
+    content: 'Hallo, ich bin Dhanush, DevOps Engineer mit mehr als 3 Jahren Erfahrung in Cloud-Infrastruktur, CI/CD-Automatisierung und Plattformbetrieb.\n\nMein fachlicher Schwerpunkt liegt auf AWS, Terraform, Docker, Kubernetes, Jenkins, GitOps mit Argo CD sowie Monitoring mit Prometheus und Grafana. Dazu kommen DevSecOps-Praktiken wie Container- und Dependency-Scans.\n\nIch interessiere mich für zuverlässige Release-Prozesse, reproduzierbare Infrastruktur und den stabilen, sicheren Betrieb von Plattformen in der Produktion.',
     button: 'Mehr über mich'
   },
 
@@ -32,7 +33,7 @@ const translations = {
     jobs: [
       {
         title: 'Associate DevOps Engineer',
-        company: 'Firmenname',
+        company: 'Jeeves Information Systems (Forterro)',
         duration: '06/2022 - 05/2023',
         points: [
           'Baute Jenkins-CI/CD-Pipelines mit Git, Maven, SonarQube und Nexus für Build, Test und Deployment und reduzierte damit manuelle Release-Aufwände.',
@@ -44,7 +45,7 @@ const translations = {
       },
       {
         title: 'DevOps Engineer',
-        company: 'Firmenname',
+        company: 'Jeeves Information Systems (Forterro)',
         duration: '06/2023 - 01/2025',
         points: [
           'Provisionierte AWS-Infrastruktur mit wiederverwendbaren Terraform-Modulen und vereinheitlichte DEV-, QA- und PROD-Umgebungen; Integration in GitHub Actions und GitLab CI/CD.',
@@ -62,33 +63,37 @@ const translations = {
     title: 'Bildung',
     items: [
       {
-        university: 'Name der Universität',
-        year: '20XX - 20XX',
-        degree: 'Master-Abschluss'
+        university: 'Hochschule Hof, University of Applied Sciences',
+        year: '2026 - 2028',
+        degree: 'Master in Artificial Intelligence und Robotik'
       },
       {
-        university: 'Name der Universität',
-        year: '20XX - 20XX',
-        degree: 'Bachelor of Engineering'
+        university: 'Visvesvaraya Technological University',
+        year: '2018 - 2022',
+        degree: 'Bachelor of Engineering in Information Science'
       }
     ]
   },
 
   projects: {
     title: 'Ausgewählte Projekte',
+    viewCode: 'Code auf GitHub ansehen',
     items: [
       {
         title: 'Self-Managed Kubernetes Platform mit Disaster Recovery',
+        url: 'https://github.com/dhanushpv-25/Self-managed-Kubernetes-platform-with-DR',
         description: 'Eine hochverfügbare Kubernetes-Plattform ohne Managed Service: drei Control-Plane-Knoten mit gestapeltem etcd und zwei Worker, vollständig per Code aufgebaut. Der Cluster lässt sich per tofu destroy neu erstellen, unterbrechungsfrei aktualisieren und nach einem simulierten Control-Plane-Ausfall aus einem etcd-Snapshot wiederherstellen. GitOps über ArgoCD (App-of-Apps), Secrets über Vault und External Secrets.',
         stack: ['OpenTofu', 'libvirt', 'Ansible', 'kubeadm', 'Cilium', 'Hubble', 'ArgoCD', 'Velero', 'Vault', 'External Secrets', 'Bash', 'Python']
       },
       {
         title: 'Sichere Software Supply Chain und Progressive Delivery',
+        url: 'https://github.com/dhanushpv-25/Secure-supply-chain-and-progressive-delivery',
         description: 'Eine Delivery-Pipeline, die nachweist, dass in Produktion nur geprüfter, getesteter und signierter Code läuft. Wiederverwendbare GitHub-Actions-Workflows führen Tests, Trivy-Scans, SBOM-Erzeugung und Cosign-Signierung aus; Kyverno verifiziert Signaturen beim Admission. Die Promotion erfolgt per Image-Digest, Releases werden mit Argo Rollouts und Prometheus-Analyse als Canary ausgerollt und bei Fehlern automatisch zurückgerollt. Die OpenTofu-Infrastruktur läuft über eine GitLab-CI-Pipeline.',
         stack: ['GitHub Actions', 'Trivy', 'Syft', 'Cosign', 'Harbor', 'Kyverno', 'Helm', 'Argo Rollouts', 'Prometheus', 'GitLab CI', 'OpenTofu']
       },
       {
         title: 'SLO-basierte Zuverlässigkeit mit abgesichertem Self-Healing',
+        url: 'https://github.com/dhanushpv-25/SLO-driven-reliability-with-guarded-self-healing',
         description: 'Eine Reliability-Schicht, die Ausfälle erkennt, diagnostiziert und sicher behebt. SLOs werden als Code definiert, Burn-Rate-Alerts frieren bei verbrauchtem Error Budget automatisch Rollouts ein. Chaos-Experimente decken Fehlerquellen über verteiltes Tracing auf; ein Python-Remediation-Controller mit Dry-Run, Rate Limits, Schleifenschutz und Freigabe für riskante Aktionen behebt Störungen und erzeugt Incident-Reports mit gemessenen MTTD- und MTTR-Werten.',
         stack: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Tempo', 'Sloth', 'Chaos Mesh', 'Python', 'Kubernetes']
       }
@@ -116,14 +121,14 @@ const translations = {
 
   hero: {
     greeting: 'Hello, I am',
-    title: 'Your Name',
+    title: 'Dhanush',
     subtitle: 'DevOps Engineer focused on CI/CD, cloud infrastructure, Kubernetes and observability. Experienced with AWS, Terraform, Docker, Jenkins, Argo CD and building and running reliable Kubernetes platforms.',
     cta: 'Contact Me'
   },
 
   about: {
     title: 'Who am I?',
-    content: 'Hi, I’m [Your Name], a DevOps Engineer with 3+ years of experience in cloud infrastructure, CI/CD automation and platform operations.\n\nMy core areas are AWS, Terraform, Docker, Kubernetes, Jenkins, GitOps with Argo CD and monitoring with Prometheus and Grafana, along with DevSecOps practices such as container and dependency scanning.\n\nI care about dependable release processes, reproducible infrastructure and keeping platforms secure and stable in production.',
+    content: 'Hi, I’m Dhanush, a DevOps Engineer with 3+ years of experience in cloud infrastructure, CI/CD automation and platform operations.\n\nMy core areas are AWS, Terraform, Docker, Kubernetes, Jenkins, GitOps with Argo CD and monitoring with Prometheus and Grafana, along with DevSecOps practices such as container and dependency scanning.\n\nI care about dependable release processes, reproducible infrastructure and keeping platforms secure and stable in production.',
     button: 'More About Me'
   },
 
@@ -134,7 +139,7 @@ const translations = {
     jobs: [
       {
         title: 'Associate DevOps Engineer',
-        company: 'Company Name',
+        company: 'Jeeves Information Systems (Forterro)',
         duration: '06/2022 - 05/2023',
         points: [
           'Built Jenkins CI/CD pipelines with Git, Maven, SonarQube and Nexus covering build, test and deployment, reducing manual release effort.',
@@ -146,7 +151,7 @@ const translations = {
       },
       {
         title: 'DevOps Engineer',
-        company: 'Company Name',
+        company: 'Jeeves Information Systems (Forterro)',
         duration: '06/2023 - 01/2025',
         points: [
           'Provisioned AWS infrastructure with reusable Terraform modules, standardising DEV, QA and PROD environments and integrating them with GitHub Actions and GitLab CI/CD.',
@@ -164,33 +169,37 @@ const translations = {
     title: 'Education',
     items: [
       {
-        university: 'University Name',
-        year: '20XX - 20XX',
-        degree: 'Master’s Degree'
+        university: 'Hochschule Hof, University of Applied Sciences',
+        year: '2026 - 2028',
+        degree: 'Master’s in Artificial Intelligence and Robotics'
       },
       {
-        university: 'University Name',
-        year: '20XX - 20XX',
-        degree: 'Bachelor of Engineering'
+        university: 'Visvesvaraya Technological University',
+        year: '2018 - 2022',
+        degree: 'Bachelor of Engineering in Information Science'
       }
     ]
   },
 
   projects: {
     title: 'Selected Projects',
+    viewCode: 'View on GitHub',
     items: [
       {
         title: 'Self-Managed Kubernetes Platform with Disaster Recovery',
+        url: 'https://github.com/dhanushpv-25/Self-managed-Kubernetes-platform-with-DR',
         description: 'A highly available Kubernetes platform built without a managed service: three control-plane nodes with stacked etcd and two workers, fully provisioned from code. The cluster can be destroyed and rebuilt with tofu, upgraded in place while an application stays up, and restored from an etcd snapshot after a simulated control-plane failure. GitOps runs through ArgoCD (app-of-apps) and secrets through Vault and External Secrets.',
         stack: ['OpenTofu', 'libvirt', 'Ansible', 'kubeadm', 'Cilium', 'Hubble', 'ArgoCD', 'Velero', 'Vault', 'External Secrets', 'Bash', 'Python']
       },
       {
         title: 'Secure Supply Chain and Progressive Delivery',
+        url: 'https://github.com/dhanushpv-25/Secure-supply-chain-and-progressive-delivery',
         description: 'A delivery pipeline that proves production runs only what was reviewed, tested and signed. Reusable GitHub Actions workflows run tests, Trivy scans, SBOM generation and Cosign signing, and Kyverno verifies signatures at admission. Images are promoted by digest, and releases roll out as canaries with Argo Rollouts and Prometheus analysis, rolling back automatically when a release is bad. The OpenTofu infrastructure is applied through a GitLab CI pipeline.',
         stack: ['GitHub Actions', 'Trivy', 'Syft', 'Cosign', 'Harbor', 'Kyverno', 'Helm', 'Argo Rollouts', 'Prometheus', 'GitLab CI', 'OpenTofu']
       },
       {
         title: 'SLO-Driven Reliability with Guarded Self-Healing',
+        url: 'https://github.com/dhanushpv-25/SLO-driven-reliability-with-guarded-self-healing',
         description: 'A reliability layer that detects, diagnoses and safely recovers from failures. SLOs are defined as code, and burn-rate alerts freeze rollouts automatically once the error budget is spent. Chaos experiments surface faulty services through distributed tracing, and a Python remediation controller with dry-run mode, rate limits, loop prevention and approval for risky actions fixes incidents and produces incident reports with measured MTTD and MTTR.',
         stack: ['Prometheus', 'Grafana', 'Loki', 'OpenTelemetry', 'Tempo', 'Sloth', 'Chaos Mesh', 'Python', 'Kubernetes']
       }
@@ -304,7 +313,7 @@ export default function Portfolio() {
               transition={{ duration: 0.6 }}
               className="text-2xl font-bold text-gray-900"
             >
-              YN
+              DPV
             </motion.div>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -371,13 +380,13 @@ export default function Portfolio() {
                 className="flex gap-4"
               >
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:dhanush.palani.vijay.kumari.job@gmail.com"
                   className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105"
                 >
                   {t.hero.cta}
                 </a>
                 <a
-                  href="https://github.com/your-username"
+                  href="https://github.com/dhanushpv-25"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-8 py-3 border-2 border-gray-300 text-gray-900 rounded-full font-medium hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
@@ -390,7 +399,7 @@ export default function Portfolio() {
                 className="flex gap-4 mt-8"
               >
                 <a
-                  href="https://github.com/your-username"
+                  href="https://github.com/dhanushpv-25"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-gray-100 hover:bg-blue-100 rounded-full transition-all duration-300 hover:scale-110"
@@ -398,7 +407,7 @@ export default function Portfolio() {
                   <Github size={20} className="text-gray-700" />
                 </a>
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:dhanush.palani.vijay.kumari.job@gmail.com"
                   className="p-3 bg-gray-100 hover:bg-blue-100 rounded-full transition-all duration-300 hover:scale-110"
                 >
                   <Mail size={20} className="text-gray-700" />
@@ -421,16 +430,17 @@ export default function Portfolio() {
                 }}
                 className="relative w-full max-w-md mx-auto"
               >
-             <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl bg-white flex items-center justify-center">
-  <div className="w-full h-full p-4 flex items-center justify-center">
-    <div className="w-full h-full rounded-2xl overflow-hidden">
-      {/* Placeholder: replace with <img src={Profile} /> once a photo is available */}
-      <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-        <Server size={96} className="text-blue-600" />
-      </div>
-    </div>
-  </div>
-</div>
+                <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl bg-white flex items-center justify-center">
+                  <div className="w-full h-full p-4 flex items-center justify-center">
+                    <div className="w-full h-full rounded-2xl overflow-hidden">
+                      <img
+                        src={Profile}
+                        alt="Profilbild"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
 
                 <motion.div
                   animate={{
@@ -482,8 +492,6 @@ export default function Portfolio() {
             <motion.a
               variants={fadeInUpVariants}
               href="#experience"
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105"
             >
               {t.about.button}
@@ -515,7 +523,7 @@ export default function Portfolio() {
             </motion.p>
 
             <div className="space-y-8">
-              {t.experience.jobs.map((job, index) => (
+              {[...t.experience.jobs].reverse().map((job, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
@@ -548,7 +556,7 @@ export default function Portfolio() {
               className="mt-12 flex gap-4"
             >
               <a
-                href="#"
+                href="https://drive.google.com/file/d/1Okl1ckG05T6zuVgiv0hKXZ1Mqgh9uCP3/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105"
@@ -642,6 +650,17 @@ export default function Portfolio() {
                       </span>
                     ))}
                   </div>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 mt-5 text-sm font-medium text-blue-700 hover:text-blue-900 transition-colors"
+                    >
+                      <Github size={16} />
+                      {t.projects.viewCode}
+                    </a>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -678,10 +697,10 @@ export default function Portfolio() {
                   <div>
                     <p className="text-sm text-gray-500 mb-1">{t.contact.email}</p>
                     <a
-                      href="mailto:your.email@example.com"
+                      href="mailto:dhanush.palani.vijay.kumari.job@gmail.com"
                       className="text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors"
                     >
-                      your.email@example.com
+                      dhanush.palani.vijay.kumari.job@gmail.com
                     </a>
                   </div>
                 </div>
@@ -699,7 +718,7 @@ export default function Portfolio() {
 
               <motion.a
                 variants={itemVariants}
-                href="mailto:your.email@example.com"
+                href="mailto:dhanush.palani.vijay.kumari.job@gmail.com"
                 className="inline-flex items-center gap-2 mt-8 px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105"
               >
                 <Mail size={20} />
@@ -722,16 +741,17 @@ export default function Portfolio() {
                 }}
                 className="relative w-full max-w-md mx-auto"
               >
-               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl bg-white flex items-center justify-center">
-  <div className="w-full h-full p-4 flex items-center justify-center">
-    <div className="w-full h-full rounded-2xl overflow-hidden">
-      {/* Placeholder: replace with <img src={Profile} /> once a photo is available */}
-      <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-        <Server size={96} className="text-blue-600" />
-      </div>
-    </div>
-  </div>
-</div>
+                <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl bg-white flex items-center justify-center">
+                  <div className="w-full h-full p-4 flex items-center justify-center">
+                    <div className="w-full h-full rounded-2xl overflow-hidden">
+                      <img
+                        src={Profile}
+                        alt="Profilbild"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
 
                 <motion.div
                   animate={{
@@ -761,17 +781,17 @@ export default function Portfolio() {
             className="flex flex-col md:flex-row items-center justify-between gap-6"
           >
             <div className="text-center md:text-left">
-              <p className="text-2xl font-bold text-gray-900 mb-2">Your Name</p>
+              <p className="text-2xl font-bold text-gray-900 mb-2">Dhanush</p>
               <p className="text-gray-600">
-                {language === 'de' 
-                  ? 'Entwicklerin, Designerin & Problemlöserin' 
-                  : 'Developer, Designer & Problem Solver'}
+                {language === 'de'
+                  ? 'DevOps Engineer mit Schwerpunkt auf CI/CD, Cloud & Kubernetes'
+                  : 'DevOps Engineer focused on CI/CD, Cloud & Kubernetes'}
               </p>
             </div>
 
             <div className="flex gap-4">
               <a
-                href="https://github.com/your-username"
+                href="https://github.com/dhanushpv-25"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white hover:bg-blue-50 rounded-full transition-all duration-300 hover:scale-110 shadow-sm"
@@ -779,7 +799,7 @@ export default function Portfolio() {
                 <Github size={20} className="text-gray-700" />
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:dhanush.palani.vijay.kumari.job@gmail.com"
                 className="p-3 bg-white hover:bg-blue-50 rounded-full transition-all duration-300 hover:scale-110 shadow-sm"
               >
                 <Mail size={20} className="text-gray-700" />
@@ -794,7 +814,7 @@ export default function Portfolio() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm"
           >
-            <p>© 2025 Your Name. {language === 'de' ? 'Alle Rechte vorbehalten.' : 'All rights reserved.'}</p>
+            <p>© 2026 Dhanush Palani Vijay Kumari. {language === 'de' ? 'Alle Rechte vorbehalten.' : 'All rights reserved.'}</p>
           </motion.div>
         </div>
       </footer>
