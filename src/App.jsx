@@ -556,7 +556,7 @@ export default function Portfolio() {
               className="mt-12 flex gap-4"
             >
               <a
-                href="https://drive.google.com/file/d/1Okl1ckG05T6zuVgiv0hKXZ1Mqgh9uCP3/view?usp=sharing"
+                href="https://drive.google.com/file/d/1oUJQzRItcfxQb9aeTnIRGlRtnJkEuqMM/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all duration-300 hover:scale-105"
