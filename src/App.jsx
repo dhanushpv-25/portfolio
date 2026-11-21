@@ -36,11 +36,9 @@ const translations = {
         company: 'Jeeves Information Systems (Forterro)',
         duration: '06/2022 - 05/2023',
         points: [
-          'Baute Jenkins-CI/CD-Pipelines mit Git, Maven, SonarQube und Nexus für Build, Test und Deployment und reduzierte damit manuelle Release-Aufwände.',
-          'Containerisierte Anwendungen mit Docker, nutzte Multi-Stage-Builds und veröffentlichte versionierte Images in einer Container-Registry.',
-          'Pflegte Git-Repositories, Branching-Strategien, Tags und Release-Prozesse für konsistente Deployments in DEV-, QA- und PROD-Umgebungen.',
-          'Betrieb AWS-Ressourcen wie EC2, S3, IAM, VPC, Load Balancer und Auto Scaling und unterstützte stabile Produktions-Releases.',
-          'Analysierte fehlgeschlagene Builds und Deployments gemeinsam mit Entwicklungs- und QA-Teams und dokumentierte Build- und Deployment-Abläufe.'
+          'Jenkins-CI/CD-Pipelines von Grund auf aufgebaut und die Jenkinsfiles selbst geschrieben. Jede Pipeline hat den Code geholt, den Maven-Build ausgeführt, das Docker-Image gebaut, nach ECR gepusht und per SSH auf EC2 deployt. Dadurch entfielen manuelle Build-Starts, die Deployment-Dauer sank um geschätzt 40 % und Deployment-Fehler über die Umgebungen hinweg gingen zurück.',
+    'Zustand von Anwendungen und Servern mit Prometheus und Grafana überwacht und CloudWatch- und SNS-Benachrichtigungen eingerichtet. Warnungen zu Speicherplatz und Ressourcenauslastung habe ich früh untersucht, damit Dienste nicht beeinträchtigt wurden.',
+    'Python-Skripte für Log-Parsing, Festplattenüberwachung und SSL-Zertifikatsprüfungen geschrieben und damit mehr als 15 Engineering-Stunden pro Woche eingespart.'
         ]
       },
       {
@@ -48,12 +46,10 @@ const translations = {
         company: 'Jeeves Information Systems (Forterro)',
         duration: '06/2023 - 01/2025',
         points: [
-          'Provisionierte AWS-Infrastruktur mit wiederverwendbaren Terraform-Modulen und vereinheitlichte DEV-, QA- und PROD-Umgebungen; Integration in GitHub Actions und GitLab CI/CD.',
-          'Betrieb Kubernetes-Cluster (EKS) mit Helm, Ingress, HPA und persistenten Volumes für containerisierte Microservices und verkürzte Deployment-Zeiten von rund einer Stunde auf etwa 15 Minuten.',
-          'Führte GitOps mit Argo CD ein und verbesserte Nachvollziehbarkeit und Konsistenz der Deployments durch deklarative Manifeste.',
-          'Integrierte DevSecOps-Checks mit Trivy, SonarQube und OWASP Dependency-Check in die Pipelines, um Schwachstellen vor der Produktion zu blockieren.',
-          'Baute Monitoring- und Alerting-Dashboards mit Prometheus, Grafana und CloudWatch und zentralisierte Logs mit dem EFK-Stack zur schnelleren Fehlererkennung und -behebung.',
-          'Automatisierte Konfigurationsmanagement und Betriebsaufgaben mit Ansible, Bash und Python und verwaltete Secrets über AWS Secrets Manager.'
+          'Build- und Deployment-Pipelines für über 20 Anwendungen mit Jenkins Shared Libraries automatisiert, sodass Teams eine gemeinsame Pipeline nutzen, statt jeweils eigene zu pflegen. Die Release-Zykluszeit sank um 40 %, von 2 Stunden auf 1,2 Stunden.',
+    'Infrastruktur mit modularem Terraform standardisiert, mit Remote State in S3 und Locking über DynamoDB, damit das Team sicher am selben State arbeiten kann. Das Aufsetzen neuer Umgebungen wurde um 60 % schneller.',
+    'Produktive Microservices auf Amazon EKS mit Helm-Charts und HPA-Autoscaling betrieben und damit über 100 unterbrechungsfreie Releases pro Monat ermöglicht. Außerdem habe ich die Java/Spring-Boot-Images als Multi-Stage-Docker-Builds neu aufgebaut, wodurch die Image-Größe um 45 % und die Startzeit um 30 % sank.',
+    'Stabilität und Performance der unternehmensweiten Datenpipelines verbessert und die Verarbeitungszeit von 24 Stunden auf 4 Stunden reduziert (75 %).'
         ]
       }
     ]
@@ -142,11 +138,10 @@ const translations = {
         company: 'Jeeves Information Systems (Forterro)',
         duration: '06/2022 - 05/2023',
         points: [
-          'Built Jenkins CI/CD pipelines with Git, Maven, SonarQube and Nexus covering build, test and deployment, reducing manual release effort.',
-          'Containerised applications with Docker using multi-stage builds and published versioned images to a container registry.',
-          'Maintained Git repositories, branching strategies, tagging and release processes for consistent deployments across DEV, QA and PROD environments.',
-          'Operated AWS resources including EC2, S3, IAM, VPC, load balancers and Auto Scaling, supporting stable production releases.',
-          'Troubleshot failed builds and deployments with development and QA teams, and documented build and deployment procedures.'
+          'Built Jenkins CI/CD pipelines from scratch and wrote the Jenkinsfiles myself. Each one pulled the code, ran the Maven build, built the Docker image, pushed it to ECR and deployed to EC2 over SSH. This replaced manual build starts, cut deployment time by an estimated 40% and reduced deployment errors across environments.',
+      "Monitored application and server health with Prometheus and Grafana, and set up CloudWatch and SNS notifications. I investigated disk space and resource utilization alerts early so services didn't degrade.",
+      'Wrote Python scripts for log parsing, disk monitoring and SSL certificate checks, saving 15+ engineering hours a week.'
+          
         ]
       },
       {
@@ -154,12 +149,10 @@ const translations = {
         company: 'Jeeves Information Systems (Forterro)',
         duration: '06/2023 - 01/2025',
         points: [
-          'Provisioned AWS infrastructure with reusable Terraform modules, standardising DEV, QA and PROD environments and integrating them with GitHub Actions and GitLab CI/CD.',
-          'Ran Kubernetes clusters (EKS) with Helm, Ingress, HPA and persistent volumes for containerised microservices, cutting deployment time from about an hour to roughly 15 minutes.',
-          'Introduced GitOps with Argo CD, improving deployment traceability and environment consistency through declarative manifests.',
-          'Added DevSecOps checks with Trivy, SonarQube and OWASP Dependency-Check to pipelines to block vulnerabilities before production.',
-          'Built monitoring and alerting dashboards with Prometheus, Grafana and CloudWatch and centralised logs with the EFK stack for faster detection and resolution of incidents.',
-          'Automated configuration management and operational tasks with Ansible, Bash and Python, and managed secrets through AWS Secrets Manager.'
+           'Automated build and deployment pipelines for 20+ applications with Jenkins Shared Libraries, so teams reused one pipeline instead of maintaining separate ones. Release cycle time dropped 40%, from 2 hours to 1.2 hours.',
+    'Standardized infrastructure with modular Terraform, using S3 remote state and DynamoDB locking so the team could work on the same state safely. Environment setup became 60% faster.',
+    'Ran production microservices on Amazon EKS with Helm charts and HPA autoscaling, supporting 100+ monthly zero-downtime releases. I also rebuilt the Java/Spring Boot images as multi-stage Docker builds, cutting image size by 45% and startup time by 30%.',
+    'Improved the stability and performance of the enterprise data pipelines, cutting processing time from 24 hours to 4 hours (75%).'
         ]
       }
     ]
